@@ -1,23 +1,20 @@
 import React from 'react';
 import { useState } from 'react';
 
-function Search(props) {
-  const [Newsearch, setNewSearch] = useState('All');
+function Search({ query, SetQuery }) {
+  const [query, SetQuery] = useState('');
 
-  const handleSelect = (e) => {
-    setFirstLetter(e.target.value);
+  const handleSearch = (event) => {
+    SetQuery(event.target.value);
   };
 
   return (
-    <div className="FilterFoods">
-      <form value={''} onChange={handleSelect}>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-      </form>
-    </div>
+    <>
+      <Divider> Search</Divider>
+      <label> Search </label>
+
+      <Input value={query} onChange={handleSearch} />
+    </>
   );
 }
 
